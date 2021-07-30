@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "C:\\Users\\dynamo\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\site-packages\\docx2txt"
+    ]
+}
