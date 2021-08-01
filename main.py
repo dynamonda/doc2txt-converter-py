@@ -18,7 +18,7 @@ def write_txt(text: str, filename: str):
     if os.path.exists(output_dir):
         fullpath = os.path.join(output_dir, filename+'.novel')
         print(fullpath)
-        with open(fullpath, "w") as f:
+        with open(fullpath, "w", encoding="utf-8") as f:
             f.write(text)
 
 
