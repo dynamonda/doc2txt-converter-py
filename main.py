@@ -1,17 +1,35 @@
 import sys
+import os
 import docx2txt
 
 path: str = ""
+output_dir: str = "./word2txt/"
 
-def convert2txt(path: str)->str:
+
+def get_file_name(path: str) -> str:
+    return os.path.splitext(os.path.basename(path))[0]
+
+
+def convert2txt(path: str) -> str:
     return docx2txt.process(path)
+
+
+def write_txt(text: str, filename: str):
+    if os.path.exists(output_dir):
+        fullpath = os.path.join(output_dir, filename+'.novel')
+        print(fullpath)
+        with open(fullpath, "w") as f:
+            f.write(text)
+
 
 def main():
     print("Start docx2txt")
-    print(path)
-    doctxt = convert2txt(path)
-    print(doctxt)
-    
+    file_name = get_file_name(path)
+    if os.path.exists(path):
+        doctxt = convert2txt(path)
+        write_txt(doctxt, file_name)
+
+
 if __name__ == '__main__':
     args = sys.argv
 
